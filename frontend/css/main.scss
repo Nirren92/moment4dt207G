@@ -1,0 +1,232 @@
+
+
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+
+.Container_Expereince {
+  
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    .details {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        font-size: clamp(14px, 2vw, 40px);
+        cursor: pointer;
+        animation: växaFram 0.5s ease-out forwards;
+        &:hover {
+            background-color: #f0f0f0;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: clamp(12px, 2vw, 24px);
+            padding-left: 5%;            
+        }
+    
+
+        button
+        {
+        width: 100%;
+        height: 30px;
+        margin: auto;
+        border-radius: 50px;
+        font-size: clamp(12px, 2vw, 24px);
+        &:hover {
+            background-color: #504c4c;
+            color: #f0f0f0;
+          
+        }
+        }
+
+    }
+}
+
+button
+        {
+        width: 100%;
+        height: 50px;
+        margin: auto;
+        border-radius: 50px;
+        font-size: clamp(12px, 2vw, 24px);
+        
+        &:hover {
+            background-color: #504c4c;
+            color: #f0f0f0;
+          
+        }
+        }
+
+header
+{
+    height: 100px;
+    background-color: aquamarine;
+    margin-bottom: 50px;
+    
+}
+
+nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a
+{
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+   margin-left: 20px;
+   margin-right: 20px;
+}
+
+nav a:hover
+{
+    background-color: rgb(48, 92, 77);
+}
+
+
+
+.container
+{
+width: 95%;
+display: flex;
+justify-content: center;
+flex-direction: column;
+margin: auto;
+background-color: aliceblue;
+border-radius: 0 0 30px 30px;
+}
+
+
+
+form
+{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    background-color: aliceblue;
+    width: 60%;
+}
+
+label
+{
+    font-size: clamp(12px, 2vw, 24px);
+}
+
+
+table
+{
+    padding: 10px;
+    margin: auto;
+    width: 95%;
+    background-color: aliceblue;
+    min-height: 100px;
+    table-layout: fixed;
+
+}
+th{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: clamp(10px, 3vw, 24px);
+}
+td
+{
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    border:1px solid black
+}
+
+.tdbutton
+{
+
+    white-space: unset;
+    min-width: 200px;
+}
+
+
+h1
+{
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    background-color: aquamarine;
+    border-radius: 30px 30px 0 0;
+}
+
+h2
+{
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  
+}
+
+
+header
+{
+    height: 100px;
+    background-color: aquamarine;
+    margin-bottom: 50px;
+    
+}
+
+nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a
+{
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+   margin-left: 20px;
+   margin-right: 20px;
+}
+
+nav a:hover
+{
+    background-color: rgb(48, 92, 77);
+}
+
+
+@keyframes växaFram {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
