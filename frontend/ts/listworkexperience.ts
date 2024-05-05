@@ -48,7 +48,11 @@ export class WorkExperienceList
     {
         try {
             const response = await fetch(this.APIURL+"/api/removeworkexperience/"+id, {
-                            method: 'DELETE'
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type':'application/json',
+                                'Authorization': `Bearer ${this.authToken}`
+                            },
                         });
         }
         catch(err)
@@ -75,7 +79,8 @@ export class WorkExperienceList
                 const response = await fetch(this.APIURL+"/api/addworkexperience", {
                                 method: 'POST',
                                 headers: {
-                                    'Content-Type':'application/json'
+                                    'Content-Type':'application/json',
+                                    'Authorization': `Bearer ${this.authToken}`
                                 },
                                 body: JSON.stringify(data),
                             });
