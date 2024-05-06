@@ -61,7 +61,7 @@ async function submitadduser(event:Event)
     console.log(fields);
     try
     {
-        const response = await fetch("http://localhost:3000/api/register", {
+        const response = await fetch(APIURL+"/api/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -92,7 +92,7 @@ async function submitloggain(event:Event)
     };
 
     
-        const response = await fetch("http://localhost:3000/api/login", {
+        const response = await fetch(APIURL+"/api/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
