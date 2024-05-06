@@ -7,10 +7,10 @@ app.use(cors());
 
 
 const authRouters = require("./routers/authrouter")
-app.use("/api", authRouters);
+app.use("/api",cors(), authRouters);
 
 const courses_protected = require("./routers/workexperience")
-app.use("/api", auth_token, courses_protected);
+app.use("/api", auth_token,cors(), courses_protected);
 
 
 //skyddad sida. 
