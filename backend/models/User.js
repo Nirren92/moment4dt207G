@@ -39,6 +39,7 @@ userSchema.statics.register = async function ({username,password}) {
 
     try
     {
+        console.log("testar");
         const user = new this({username,password});
         await user.save();
         return user;

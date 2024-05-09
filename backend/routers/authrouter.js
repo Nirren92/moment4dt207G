@@ -21,7 +21,6 @@ const User = require("../models/User.js");
 
 //addera en ny användare. 
 router.post("/register", async(req, res) => {
-    console.log("test");
     try
     {
         const {username, password} = req.body;
@@ -29,9 +28,9 @@ router.post("/register", async(req, res) => {
         {
             return res.status(400).json({error:"felaktig input"});
         }
-        const user = new User({username,password});
-        await user.save();
-        res.status(200).json({message:"Användare tillagd"});
+        const newUser = await User.register({username, password});
+
+        res.status(201).send(newUser);
     }
     catch(error)
     {
@@ -56,7 +55,7 @@ router.post("/login", async(req, res) => {
             return res.status(401).json({error:"felaktig input"});
         }
 
-        const passmatch = await user.comparePassword(password);
+        const passmatch = await User.login(username,password);
         if(!passmatch)
         {
             return res.status(401).json({error:"felaktig input"});
