@@ -31,7 +31,7 @@ function auth_token(req, res, next)
     jwt.verify(token, process.env.JWT_SECRET, (err, username) =>{
         if(err)
         {
-            return res.status(401).json({error:"inte tillgång(JWT)"});
+            return res.status(401).json({error:"inte tillgång"});
         }
         req.username = username;
         next();

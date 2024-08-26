@@ -133,6 +133,11 @@ async function init() {
         experiences.forEach(element => {
             addrow(element);
         });
+
+        if (!token) {
+            window.location.href = "index.html";
+            return;
+        }
         if(form)
         form.addEventListener('submit',submitform );
         if(loggain)
