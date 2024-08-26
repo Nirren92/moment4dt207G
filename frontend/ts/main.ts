@@ -106,7 +106,7 @@ async function submitloggain(event:Event)
             worklists.settoken(result.token);
             localStorage.setItem("jwt",result.token)
             //hämtar data
-            
+            alert("Du är inloggad!");
             const experiences = await worklists.getalldata();
             experiences.forEach(element => {
             addrow(element);
@@ -129,6 +129,7 @@ async function init() {
        
         if(token)
         {
+            alert("Du är inloggad!");
             worklists.settoken(token);
         
             const experiences = await worklists.getalldata();
@@ -146,6 +147,9 @@ async function init() {
             window.location.href = "index.html";
             return;
         }
+
+
+        
         if(form)
         form.addEventListener('submit',submitform );
         if(loggain)
