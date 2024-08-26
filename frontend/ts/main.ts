@@ -106,11 +106,14 @@ async function submitloggain(event:Event)
             worklists.settoken(result.token);
             localStorage.setItem("jwt",result.token)
             //hämtar data
-            
-            const experiences = await worklists.getalldata();
-            experiences.forEach(element => {
-            addrow(element);
-        });
+              const token = localStorage.getItem("jwt");
+       
+            if(token)
+            {
+                window.location.href = "add.html";
+                return;
+            }
+          
         }
         
     }
