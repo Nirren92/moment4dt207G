@@ -130,7 +130,7 @@ async function init() {
        
         if(token)
         {
-            alert("Du är inloggad!");
+            
             worklists.settoken(token);
         
             const experiences = await worklists.getalldata();
@@ -144,6 +144,14 @@ async function init() {
             }
         }
         const currentPath = window.location.pathname;
+
+       
+        if (token && (currentPath == "/index.html" || currentPath !== "/")) {
+            alert("Du är inloggad!");
+            window.location.href = "add.html";
+            return;
+        }
+
         if (!token && currentPath !== "/index.html" && currentPath !== "/") {
             window.location.href = "index.html";
             return;
