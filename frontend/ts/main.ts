@@ -128,18 +128,19 @@ async function init() {
         const token = localStorage.getItem("jwt");
        
         if(token)
-        worklists.settoken(token);
-    
-        const experiences = await worklists.getalldata();
-      
-        if (Array.isArray(experiences)) {
-            experiences.forEach(element => {
-                addrow(element);
-            });
-        } else {
-            console.error("nåt gick fel", experiences);
-        }
+        {
+            worklists.settoken(token);
         
+            const experiences = await worklists.getalldata();
+        
+            if (Array.isArray(experiences)) {
+                experiences.forEach(element => {
+                    addrow(element);
+                });
+            } else {
+                console.error("nåt gick fel", experiences);
+            }
+        }
         const currentPath = window.location.pathname;
         if (!token && currentPath !== "/index.html" && currentPath !== "/") {
             window.location.href = "index.html";
