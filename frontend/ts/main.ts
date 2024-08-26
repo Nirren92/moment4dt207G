@@ -133,9 +133,9 @@ async function init() {
         experiences.forEach(element => {
             addrow(element);
         });
-        
+
         const currentPath = window.location.pathname;
-        if (!token && currentPath !== "/index.html" && currentPath !== "/") {
+        if (!token && currentPath !== "/index.html" ) {
             window.location.href = "index.html";
             return;
         }
