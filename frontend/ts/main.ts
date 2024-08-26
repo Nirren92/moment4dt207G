@@ -106,14 +106,11 @@ async function submitloggain(event:Event)
             worklists.settoken(result.token);
             localStorage.setItem("jwt",result.token)
             //hämtar data
-              const token = localStorage.getItem("jwt");
-       
-            if(token)
-            {
-                window.location.href = "add.html";
-                return;
-            }
-          
+            
+            const experiences = await worklists.getalldata();
+            experiences.forEach(element => {
+            addrow(element);
+        });
         }
         
     }
@@ -132,10 +129,16 @@ async function init() {
        
         if(token)
         worklists.settoken(token);
+    
         const experiences = await worklists.getalldata();
-        experiences.forEach(element => {
-            addrow(element);
-        });
+      
+        if (Array.isArray(experiences)) {
+            experiences.forEach(element => {
+                addrow(element);
+            });
+        } else {
+            console.error("nåt gick fel", experiences);
+        }
         
         const currentPath = window.location.pathname;
         if (!token && currentPath !== "/index.html" && currentPath !== "/") {
