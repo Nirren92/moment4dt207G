@@ -107,6 +107,7 @@ async function submitloggain(event:Event)
             localStorage.setItem("jwt",result.token)
             //hämtar data
             alert("Du är inloggad!");
+            window.location.href = "add.html";
             const experiences = await worklists.getalldata();
             experiences.forEach(element => {
             addrow(element);
