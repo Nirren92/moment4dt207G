@@ -146,7 +146,7 @@ async function init() {
         const currentPath = window.location.pathname;
 
        
-        if (token && (currentPath == "/index.html" || currentPath !== "/")) {
+        if (token && currentPath == "/index.html") {
             alert("Du är inloggad!");
             window.location.href = "add.html";
             return;
