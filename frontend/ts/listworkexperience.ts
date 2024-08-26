@@ -1,4 +1,5 @@
 import { workexperience} from "./workexperience";
+const token = localStorage.getItem("jwt");
 
 export class WorkExperienceList
 {
@@ -20,27 +21,30 @@ export class WorkExperienceList
     //Funktion för att hämta all sparad data
     private async Initdatabasedata()
     {
-        try {
-            const response = await fetch(this.APIURL+"/api/workexperience", {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${this.authToken}`}
-            });
-            let temparray = await response.json();
-            //Skapar objekt av datan. 
-            this.WorkExperiencearray = temparray.map(element => new workexperience(
-            element._id,
-            element.companyName,
-            element.jobTitle,
-            element.location,
-            new Date(element.startDate),  
-            new Date(element.endDate),
-            element.description
-            ));
-        }
-        catch(err)
+        if (token)
         {
-            console.error("nåt gick fel vid hämtning av data:",err);        
+            try {
+                const response = await fetch(this.APIURL+"/api/workexperience", {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${this.authToken}`}
+                });
+                let temparray = await response.json();
+                //Skapar objekt av datan. 
+                this.WorkExperiencearray = temparray.map(element => new workexperience(
+                element._id,
+                element.companyName,
+                element.jobTitle,
+                element.location,
+                new Date(element.startDate),  
+                new Date(element.endDate),
+                element.description
+                ));
+            }
+            catch(err)
+            {
+                console.error("nåt gick fel vid hämtning av data:",err);        
+            }
         }
     }
 
